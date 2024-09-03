@@ -6,7 +6,7 @@ require_relative '../lib/12_magic_seven'
 # 1. Familiarize yourself with the class in lib/12_magic_seven.rb
 # 2. Complete spec/12_magic_seven_spec.rb
 
-# Before learning any more complexities of testing, let's take a look at a
+# Before learning any more compleities of testing, let's take a look at a
 # standard testing pattern: Arrange, Act, and Assert.
 # https://youtu.be/sCthIEOaMI8
 
@@ -70,34 +70,62 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when previous step is 5' do
+      it 'returns 1' do
+        previous_step = 5
+        result = game.subtract_four(previous_step)
+        expect(result).to eq 1
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when previous step is 22' do
+      it 'returns 11' do
+        previous_step = 22
+        result = game.divide_by_two(previous_step)
+        expect(result).to eq 11
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    context 'when given number is subtracted with original random number' do
+      it 'returns 0' do
+        random_number = 19
+        predetermined_game = described_class.new random_number
+        result = predetermined_game.subtract_random_number random_number
+        expect(result).to eq 0
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
+    context 'when the random number is 5' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        test_game = described_class.new 5
+        expect(test_game.play).to eq 7
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 7' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        test_game = described_class.new 7
+        expect(test_game.play).to eq 7
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 21' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        test_game = described_class.new 21
+        expect(test_game.play).to eq 7
       end
     end
   end
